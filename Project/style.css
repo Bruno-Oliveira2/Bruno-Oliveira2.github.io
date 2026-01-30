@@ -1,0 +1,62 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; /* Impede barras de rolagem */
+    background-color: #000; /* Fundo preto para o espaço */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Camada de interface por cima do 3D */
+#ui-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    pointer-events: none; /* Deixa os cliques passarem para o 3D */
+    z-index: 10;
+}
+
+h1 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Caixa de informações */
+#info-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* Efeito de vidro esfumaçado */
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 250px;
+    pointer-events: auto; /* Permite interagir com a caixa de info */
+}
+
+#info-box h3 {
+    margin-bottom: 10px;
+    color: #ffcc00; /* Cor de destaque para títulos */
+}
+
+/* Garante que o canvas do Three.js fique no fundo */
+canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+}

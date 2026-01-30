@@ -1,0 +1,25 @@
+body{
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    padding: 12px;
+}
+
+.parag1 {
+    margin-top: 12px;
+}
+.parag2 {
+    margin-top: 12px;
+}
+.parag3 {
+    margin-top: 12px;
+    margin-left: 24px;
+}
+.parag4 {
+    margin-top: 12px;
+    margin-left: 24px;
+}
+
+footer{
+    margin-top: 24px;
+}
