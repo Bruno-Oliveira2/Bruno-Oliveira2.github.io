@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Solar System Explorer</title>
+        <!-- global css + about page css -->
+        <link rel="stylesheet" href="./styles/styles.css">
+        <link rel="stylesheet" href="./styles/about.css">
+        <link href="./imgs/logo.png" rel="icon">
+        <script src="./index.js" defer></script>
+    </head>
+    <body>
+        <!-- navigation sidebar -->
+        <aside class="side-bar">
+            <nav>
+                <a href="index.html"><img src="imgs/logo.png" class="logo" alt="logo" height="50px" width="auto"></a>
+                <a href="compare.html">
+                    <img src="imgs/compare.png" alt="compare" height="50px" width="auto">
+                    <span class="nav-text">Compare</span>
+                </a>
+                <a href="about.html">
+                    <img src="imgs/about-us.png" alt="about us" height="50px" width="auto">
+                    <span class="nav-text">About Us</span>
+                </a>
+            </nav>
+        </aside>
+        <main>
+            <header>
+                
+                <h1>Solar System Explorer</h1>
+                <!-- search bar -->
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" placeholder="Search">
+                    <img src="imgs/search.png" class="Search" alt="Search">
+                </div>
+            </header>
+            <!-- page title -->
+            <h1 id="tittle">About Us!</h1>
+            <!-- first row of content cards -->
+            <div id="container">
+                <div class="content">
+                    <h3>Welcome to the Solar System Explorer!</h3>
+                    <p>This website is an interactive exploration of our solar system,
+                    designed to provide detailed information about each planet.</p>
+                </div>
+                <br><br>
+                <div class="content">
+                    <h3>Our Purpose</h3>
+                    <p>Our purpose is to educate and inspire curiosity about the wonders
+                    of our solar system. We aim to make learning about space fun and
+                    accessible for everyone. Instead of reading long textbooks, users can
+                    quickly access important information and compare planets based on their
+                    size, distance from the Sun, atmosphere, and more.</p>
+                </div>
+                <br><br>
+            </div>
+            <!-- second row of content cards -->
+            <div id="container2">
+            <div class="content">
+                <h3>The Solar System</h3>
+                <p>The solar system consists of the Sun and all celestial bodies that
+                orbit it, including eight planets: Mercury, Venus, Earth, Mars, Jupiter,
+                Saturn, Uranus, and Neptune. Each planet has unique characteristics that
+                make it fascinating to study.</p>
+            </div>
+            <div class="content">
+                <h3>Our Team</h3>
+                <p>Our team is passionate about space exploration and education. We
+                are dedicated to providing accurate and engaging content to help users
+                learn more about our solar system.</p>
+                <p><strong>Course:</strong> Web Programming and Design (CPAN-134-0NC)<br>
+                <strong>Instructor:</strong> Sepideh Banihashemi<br>
+                <strong>Team:</strong> Bruno Oliveira, Arshmit Grewal, Murilo Holtz</p>
+            </div>
+            </div>
+        </main>
+        <div id="footer">
+            <footer>
+                <img src="imgs/email-logo.png" class="email" alt="email-logo">
+                <a href="https://github.com/Holtz777/Solar-System" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
+                    <img src="imgs/github-logo.png" class="git-hub" alt="gitub-logo">
+                </a>
+            </footer>
+        </div>
+    </body>
+</html>

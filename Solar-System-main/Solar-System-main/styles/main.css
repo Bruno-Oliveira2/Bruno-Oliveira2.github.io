@@ -1,0 +1,252 @@
+/* main section - centers page content */
+section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* leftover class, can delete later */
+.placehoder {
+    color: white;
+}
+
+/* popup card with planet info */
+.popup {
+    position: relative;
+    width: min(92vw, 460px);
+    min-height: 280px;
+    max-height: min(80vh, 560px);
+    background: linear-gradient(160deg, #1b2330, #090d14);
+    border-radius: 18px;
+    border: 1px solid rgba(120, 156, 255, 0.28);
+    box-shadow: 0 24px 50px rgba(3, 7, 14, 0.8);
+    padding: 50px 26px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 14px;
+    overflow-y: auto;
+    backdrop-filter: blur(4px);
+}
+
+/* dark background behind the popup */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 7, 14, 0.88);
+    z-index: 100;
+    padding: 16px;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+/* when popup is active */
+.popup-overlay.active {
+    display: flex;
+    animation: overlay-fade 0.18s ease;
+}
+
+/* card entrance animation */
+.popup-overlay.active .popup {
+    animation: popup-enter 0.24s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* close button for the popup */
+.popup-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background-color: rgba(255, 255, 255, 0.09) !important;
+    color: #f3f3f3 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    padding: 0 !important;
+    margin: 0 !important;
+    transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+/* positional fallback for close button */
+#popupClose {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+}
+
+/* hover on X - turns reddish */
+.popup-close:hover {
+    background-color: rgba(255, 92, 92, 0.26) !important;
+    border-color: rgba(255, 102, 102, 0.55);
+    transform: scale(1.08);
+}
+
+/* planet name in the popup */
+.popup-planet-name {
+    margin: 0;
+    font-size: clamp(2rem, 6vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    color: #f8fbff;
+}
+
+/* curiosity text */
+.popup-info {
+    margin: 0;
+    color: rgba(235, 242, 255, 0.95);
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    line-height: 1.45;
+}
+
+/* list with numeric planet data */
+.popup-stats {
+    width: 100%;
+    margin: 0;
+    padding: 14px 14px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(156, 188, 255, 0.22);
+    background: rgba(7, 14, 28, 0.85);
+    list-style: none;
+    display: grid;
+    gap: 8px;
+    font-size: 0.98rem;
+    line-height: 1.35;
+}
+
+.popup-stats li {
+    color: rgba(224, 236, 255, 0.95);
+}
+
+.popup-stats strong {
+    color: #ffffff;
+}
+
+/* when popup is open, hide orbits so they don't show
+   as empty circles behind the card */
+body.popup-open .orbit {
+    opacity: 0;
+}
+
+/* overlay fade animation */
+@keyframes overlay-fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* card slide-up entrance animation */
+@keyframes popup-enter {
+    from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* solar system container */
+.solar-system {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: block;
+    flex: none;
+    background: transparent;
+}
+
+/* sun in the center */
+.sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    margin-top: -35px;
+    margin-left: -35px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    box-shadow: 0 0 40px 12px rgba(255, 215, 0, 0.55);
+    z-index: 2;
+}
+
+/* each planet orbit */
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: orbit-spin linear infinite;
+    pointer-events: none;
+}
+
+/* planets sitting on the orbit */
+.planet {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: -8px;
+    left: 50%;
+    margin-left: -8px;
+    border-radius: 50%;
+    cursor: pointer;
+    animation: counter-spin linear infinite;
+    transition: box-shadow 0.2s ease;
+    z-index: 3;
+    pointer-events: all;
+}
+
+/* red glow on planet hover */
+.planet:hover {
+    box-shadow: 0 0 16px 4px rgba(255, 92, 92, 0.65);
+}
+
+/* size and speed for each orbit */
+/* further out = slower, like in real life */
+.orbit-1 { width: 120px; height: 120px; margin-top: -60px;  margin-left: -60px;  animation-duration: 15s;  }
+.orbit-1 .planet { animation-duration: 15s;  }
+
+.orbit-2 { width: 175px; height: 175px; margin-top: -87px;  margin-left: -87px;  animation-duration: 24s;  }
+.orbit-2 .planet { animation-duration: 24s;  }
+
+.orbit-3 { width: 230px; height: 230px; margin-top: -115px; margin-left: -115px; animation-duration: 35s;  }
+.orbit-3 .planet { animation-duration: 35s;  }
+
+.orbit-4 { width: 285px; height: 285px; margin-top: -142px; margin-left: -142px; animation-duration: 48s;  }
+.orbit-4 .planet { animation-duration: 48s;  }
+
+.orbit-5 { width: 340px; height: 340px; margin-top: -170px; margin-left: -170px; animation-duration: 64s;  }
+.orbit-5 .planet { animation-duration: 64s;  }
+
+.orbit-6 { width: 395px; height: 395px; margin-top: -197px; margin-left: -197px; animation-duration: 82s;  }
+.orbit-6 .planet { animation-duration: 82s;  }
+
+.orbit-7 { width: 445px; height: 445px; margin-top: -222px; margin-left: -222px; animation-duration: 102s; }
+.orbit-7 .planet { animation-duration: 102s; }
+
+.orbit-8 { width: 495px; height: 495px; margin-top: -247px; margin-left: -247px; animation-duration: 124s; }
+.orbit-8 .planet { animation-duration: 124s; }
+
+/* orbit spinning */
+@keyframes orbit-spin {
+    from { transform: rotate(0deg);   }
+    to   { transform: rotate(360deg); }
+}
+
+/* counter-spin so planets don't rotate with the orbit */
+@keyframes counter-spin {
+    from { transform: rotate(0deg);    }
+    to   { transform: rotate(-360deg); }
+}

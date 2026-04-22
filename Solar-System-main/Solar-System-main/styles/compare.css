@@ -1,0 +1,243 @@
+/* compare page section - scrolls vertically if needed */
+section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 20px;
+    overflow-y: auto;
+}
+
+/* page title */
+#page-title {
+    margin: 8px 0 28px 0;
+    font-size: clamp(1.5em, 4vw, 2em);
+    letter-spacing: 1.5px;
+    color: #f8fbff;
+}
+
+/* main card that holds everything */
+.compare-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 24px;
+    width: 100%;
+    max-width: 1060px;
+    background: linear-gradient(160deg, rgba(27, 31, 41, 0.92), rgba(9, 13, 20, 0.95));
+    border-radius: 18px;
+    border: 1px solid rgba(120, 156, 255, 0.22);
+    box-shadow: 0 24px 48px rgba(3, 7, 14, 0.65);
+    padding: 32px 24px;
+    backdrop-filter: blur(4px);
+}
+
+/* side columns (select + stats) */
+.compare-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+}
+
+/* middle column with comparison bars */
+.compare-middle {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding-top: 46px;
+}
+
+/* base style for both selects */
+#planet1,
+#planet2 {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(120, 156, 255, 0.35);
+    background: rgba(10, 16, 28, 0.75);
+    color: #f0f4ff;
+    font-size: 1em;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    /* remove browser default style and add custom arrow */
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394b8ff' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+}
+
+/* different color for each select - left is blue */
+#planet1 {
+    border-color: rgba(91, 127, 232, 0.5);
+}
+
+/* right is orange */
+#planet2 {
+    border-color: rgba(232, 114, 74, 0.5);
+}
+
+/* focus glow */
+#planet1:focus {
+    border-color: #5b7fe8;
+    box-shadow: 0 0 0 3px rgba(91, 127, 232, 0.2);
+}
+
+#planet2:focus {
+    border-color: #e8724a;
+    box-shadow: 0 0 0 3px rgba(232, 114, 74, 0.2);
+}
+
+/* select dropdown options */
+select option {
+    background: #141a28;
+    color: #f0f4ff;
+}
+
+/* planet stats panel */
+.stats-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(156, 188, 255, 0.18);
+    background: rgba(7, 14, 28, 0.5);
+}
+
+/* placeholder text before selecting a planet */
+.placeholder-text {
+    color: rgba(180, 190, 210, 0.6);
+    font-size: 0.9em;
+    margin: 0;
+    text-align: center;
+    padding: 16px 0;
+}
+
+/* each individual stat inside the panel */
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* remove border from last item */
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    font-size: 0.72em;
+    color: rgba(180, 200, 230, 0.7);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.stat-value {
+    font-size: 1.02em;
+    font-weight: 600;
+    color: #f0f4ff;
+    margin: 0;
+}
+
+/* reset button - translucent red */
+.reset-btn {
+    text-decoration: none;
+    background: linear-gradient(135deg, rgba(255, 92, 92, 0.22), rgba(255, 60, 60, 0.35));
+    border: 1px solid rgba(255, 100, 100, 0.3);
+    color: #ffcccc;
+    padding: 10px 28px;
+    border-radius: 24px;
+    font-size: 0.92em;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.reset-btn:hover {
+    background: linear-gradient(135deg, rgba(255, 92, 92, 0.38), rgba(255, 60, 60, 0.5));
+    border-color: rgba(255, 100, 100, 0.55);
+    transform: translateY(-1px);
+}
+
+/* each comparison bar section */
+.bar-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.bar-label {
+    margin: 0;
+    font-size: 0.88em;
+    font-weight: 600;
+    color: rgba(224, 236, 255, 0.9);
+    letter-spacing: 0.3px;
+    align-self: flex-start;
+}
+
+/* bar track */
+.bar-track {
+    width: 100%;
+    height: 28px;
+    background: rgba(20, 26, 40, 0.7);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    display: flex;
+}
+
+/* left planet fill - blue */
+.bar-left-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4a6fd9, #5b7fe8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78em;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.95);
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 0%;
+    min-width: 0;
+}
+
+/* right planet fill - orange */
+.bar-right-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #e8724a, #d45a32);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78em;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.95);
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 0%;
+    min-width: 0;
+}
+
+/* stack vertically on mobile */
+@media (max-width: 768px) {
+    .compare-wrapper {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 16px;
+    }
+
+    .compare-middle {
+        padding-top: 0;
+    }
+}

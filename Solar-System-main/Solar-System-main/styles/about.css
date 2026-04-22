@@ -1,0 +1,39 @@
+/* about.css - estilos da pagina about */
+
+header {
+    width: 100%;
+}
+
+main {
+    align-items: center;
+}
+
+/* containers que seguram os cards de texto */
+#container,
+#container2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* cada card de conteudo */
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 300px;
+    width: 500px;
+    padding: 20px;
+    margin: 20px;
+    background: linear-gradient(to right, rgb(2, 1, 10), rgb(20, 1, 82));
+    border-radius: 10%;
+}
+
+/* titulo "About Us!" */
+#tittle {
+    text-align: center;
+    padding: 10px;
+    margin: 15px;
+}

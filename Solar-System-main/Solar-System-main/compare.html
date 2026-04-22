@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Solar System Explorer - Compare</title>
+        <!-- css global + css da pagina de comparacao -->
+        <link rel="stylesheet" href="./styles/styles.css">
+        <link rel="stylesheet" href="./styles/compare.css">
+        <link href="./imgs/logo.png" rel="icon">
+        <script src="./script/compare.js" defer></script>
+    </head>
+    <body>
+        <!-- sidebar de navegacao -->
+        <aside class="side-bar">
+            <nav>
+                <a href="index.html"><img src="imgs/logo.png" class="logo" alt="logo" height="50px" width="auto"></a>
+                <a href="compare.html">
+                    <img src="imgs/compare.png" alt="compare" height="50px" width="auto">
+                    <span class="nav-text">Compare</span>
+                </a>
+                <a href="about.html">
+                    <img src="imgs/about-us.png" alt="about us" height="50px" width="auto">
+                    <span class="nav-text">About Us</span>
+                </a>
+            </nav>
+        </aside>
+        <main>
+            <header>
+                
+                <h1>Solar System Explorer</h1>
+                <!-- barra de busca (nao funcional nessa pagina ainda) -->
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" placeholder="Search">
+                    <img src="imgs/search.png" class="Search" alt="Search">
+                </div>
+            </header>
+            <section>
+                <h2 id="page-title">Planet Comparator</h2>
+                <div class="compare-wrapper">
+                    <!-- lado esquerdo: select + stats do planeta 1 -->
+                    <div class="compare-col compare-left">
+                        <select id="planet1">
+                            <option value="">   Choose Planet   </option>
+                            <option>Mercury</option>
+                            <option>Venus</option>
+                            <option>Earth</option>
+                            <option>Mars</option>
+                            <option>Jupiter</option>
+                            <option>Saturn</option>
+                            <option>Uranus</option>
+                            <option>Neptune</option>
+                        </select>
+                        <div id="stats1" class="stats-panel">
+                            <p class="placeholder-text">Select a planet to see its data.</p>
+                        </div>
+                    </div>
+                    <!-- meio: botao de reset + barras de comparacao -->
+                    <div class="compare-middle">
+                        <a href="compare.html" class="reset-btn">Reset Comparison</a>
+                        <!-- cada barra compara um stat entre os dois planetas -->
+                        <div class="bar-section">
+                            <p class="bar-label">Equatorial Diameter (km)</p>
+                            <div class="bar-track">
+                                <div class="bar-left-fill" id="bar1-diameter"></div>
+                                <div class="bar-right-fill" id="bar2-diameter"></div>
+                            </div>
+                        </div>
+
+                        <div class="bar-section">
+                            <p class="bar-label">Mass (× 10²⁴ kg)</p>
+                            <div class="bar-track">
+                                <div class="bar-left-fill" id="bar1-mass"></div>
+                                <div class="bar-right-fill" id="bar2-mass"></div>
+                            </div>
+                        </div>
+
+                        <div class="bar-section">
+                            <p class="bar-label">Confirmed Moons</p>
+                            <div class="bar-track">
+                                <div class="bar-left-fill" id="bar1-moons"></div>
+                                <div class="bar-right-fill" id="bar2-moons"></div>
+                            </div>
+                        </div>
+
+                        <div class="bar-section">
+                            <p class="bar-label">Avg. Distance from Sun (million km)</p>
+                            <div class="bar-track">
+                                <div class="bar-left-fill" id="bar1-distance"></div>
+                                <div class="bar-right-fill" id="bar2-distance"></div>
+                            </div>
+                        </div>
+
+                        <div class="bar-section">
+                            <p class="bar-label">Avg. Surface Temperature (°C)</p>
+                            <div class="bar-track">
+                                <div class="bar-left-fill" id="bar1-temp"></div>
+                                <div class="bar-right-fill" id="bar2-temp"></div>
+                            </div>
+                        </div>
+
+                        <div class="bar-section">
+                            <p class="bar-label">Length of Year (Earth days)</p>
+                            <div class="bar-track">
+                                <div class="bar-left-fill" id="bar1-period"></div>
+                                <div class="bar-right-fill" id="bar2-period"></div>
+                            </div>
+                        </div>
+
+                        <div class="bar-section">
+                            <p class="bar-label">Surface Gravity (m/s²)</p>
+                            <div class="bar-track">
+                                <div class="bar-left-fill" id="bar1-gravity"></div>
+                                <div class="bar-right-fill" id="bar2-gravity"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- lado direito: select + stats do planeta 2 -->
+                    <div class="compare-col compare-right">
+                        <select id="planet2">
+                            <option value="">   Choose Planet   </option>
+                            <option>Mercury</option>
+                            <option>Venus</option>
+                            <option>Earth</option>
+                            <option>Mars</option>
+                            <option>Jupiter</option>
+                            <option>Saturn</option>
+                            <option>Uranus</option>
+                            <option>Neptune</option>
+                        </select>
+                        <div id="stats2" class="stats-panel">
+                            <p class="placeholder-text">Select a planet to see its data.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <img src="imgs/email-logo.png" class="email" alt="email-logo">
+            <a href="https://github.com/Holtz777/Solar-System" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
+                <img src="imgs/github-logo.png" class="git-hub" alt="gitub-logo">
+            </a>
+        </footer>
+    </body>
+</html>

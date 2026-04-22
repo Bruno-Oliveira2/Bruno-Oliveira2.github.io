@@ -1,0 +1,92 @@
+{
+  "planets": [
+    {
+      "name": "Mercury",
+      "diameter_km": 4879,
+      "mass_10e24_kg": 0.33,
+      "moons": 0,
+      "distance_from_sun_million_km": 57.9,
+      "avg_surface_temp_c": 167,
+      "year_length_earth_days": 88,
+      "gravity_m_s2": 3.7,
+      "curiosity": "A day on Mercury (sunrise to sunrise) lasts 176 Earth days, which is twice its year."
+    },
+    {
+      "name": "Venus",
+      "diameter_km": 12104,
+      "mass_10e24_kg": 4.87,
+      "moons": 0,
+      "distance_from_sun_million_km": 108.2,
+      "avg_surface_temp_c": 464,
+      "year_length_earth_days": 225,
+      "gravity_m_s2": 8.9,
+      "curiosity": "Venus spins backward compared to most planets, so the Sun appears to rise in the west and set in the east."
+    },
+    {
+      "name": "Earth",
+      "diameter_km": 12756,
+      "mass_10e24_kg": 5.97,
+      "moons": 1,
+      "distance_from_sun_million_km": 149.6,
+      "avg_surface_temp_c": 15,
+      "year_length_earth_days": 365,
+      "gravity_m_s2": 9.8,
+      "curiosity": "Earth is the only known planet with stable liquid water on its surface."
+    },
+    {
+      "name": "Mars",
+      "diameter_km": 6792,
+      "mass_10e24_kg": 0.642,
+      "moons": 2,
+      "distance_from_sun_million_km": 227.9,
+      "avg_surface_temp_c": -63,
+      "year_length_earth_days": 687,
+      "gravity_m_s2": 3.7,
+      "curiosity": "Mars has Olympus Mons, the tallest known volcano in the solar system."
+    },
+    {
+      "name": "Jupiter",
+      "diameter_km": 142984,
+      "mass_10e24_kg": 1898,
+      "moons": 95,
+      "distance_from_sun_million_km": 778.6,
+      "avg_surface_temp_c": -108,
+      "year_length_earth_days": 4333,
+      "gravity_m_s2": 23.1,
+      "curiosity": "Jupiter's Great Red Spot is a giant storm that has been active for centuries."
+    },
+    {
+      "name": "Saturn",
+      "diameter_km": 120536,
+      "mass_10e24_kg": 568,
+      "moons": 146,
+      "distance_from_sun_million_km": 1433.5,
+      "avg_surface_temp_c": -139,
+      "year_length_earth_days": 10759,
+      "gravity_m_s2": 9,
+      "curiosity": "Saturn is so low in density that it would float in a giant enough ocean of water."
+    },
+    {
+      "name": "Uranus",
+      "diameter_km": 51118,
+      "mass_10e24_kg": 86.8,
+      "moons": 28,
+      "distance_from_sun_million_km": 2872.5,
+      "avg_surface_temp_c": -197,
+      "year_length_earth_days": 30687,
+      "gravity_m_s2": 8.7,
+      "curiosity": "Uranus rotates on its side, with an axial tilt of about 98 degrees."
+    },
+    {
+      "name": "Neptune",
+      "diameter_km": 49528,
+      "mass_10e24_kg": 102,
+      "moons": 16,
+      "distance_from_sun_million_km": 4495.1,
+      "avg_surface_temp_c": -201,
+      "year_length_earth_days": 60190,
+      "gravity_m_s2": 11,
+      "curiosity": "Neptune has the fastest winds in the solar system, reaching over 2,000 km/h."
+    }
+  ]
+}

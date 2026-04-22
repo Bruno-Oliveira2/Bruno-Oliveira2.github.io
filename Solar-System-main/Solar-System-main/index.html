@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- bootstrap css via cdn -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+        <!-- css global + css da pagina principal -->
+        <link rel="stylesheet" href="./styles/styles.css">
+        <link rel="stylesheet" href="./styles/main.css">
+        <!-- bootstrap: fix pro modal nao ficar com fundo branco horrivel e z-index do popup -->
+        <style>
+            .modal-content {
+                background-color: #fff !important;
+                color: #333 !important;
+            }
+            .modal-backdrop { z-index: 1040 !important; }
+            .modal { z-index: 1050 !important; }
+            .popup-overlay { z-index: 9999 !important; }
+        </style>
+        <!-- script com defer pra nao bloquear o render -->
+        <script src="./script/index.js" defer></script>
+        <title>Solar System Explorer</title>
+        <link href="./imgs/logo.png" rel="icon" alt="icon">
+    </head>
+    <body>
+        <!-- sidebar de navegacao -->
+        <aside class="side-bar">
+            <nav>
+                <a href="index.html"><img src="imgs/logo.png" class="logo" alt="logo" height="50px" width="auto"></a>
+                <a href="compare.html">
+                    <img src="imgs/compare.png" alt="compare" height="50px" width="auto">
+                    <span class="nav-text">Compare</span>
+                </a>
+                <a href="about.html">
+                    <img src="imgs/about-us.png" alt="about us" height="50px" width="auto">
+                    <span class="nav-text">About Us</span>
+                </a>
+            </nav>
+        </aside>
+        <main>  
+            <header>
+                <h1>Solar System Explorer</h1>
+                <!-- barra de busca expandivel -->
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" placeholder="Search">
+                    <img src="imgs/search.png" class="Search" alt="Search">
+                </div>
+            </header>
+            <section>
+                <!-- sistema solar com o sol e as orbitas -->
+                <div class="solar-system">
+                    <div class="sun"></div>
+                    <!-- cada orbita tem um planeta com onclick pra abrir o popup -->
+                    <div class="orbit orbit-1">
+                        <div onclick="displayPlanetsInfo('Mercury')" class="planet" data-name="Mercury" style="background: radial-gradient(circle at 35% 35%, #d4d4d4, #6b6b6b);"></div>
+                    </div>
+                    <div class="orbit orbit-2">
+                        <div onclick="displayPlanetsInfo('Venus')" class="planet" data-name="Venus" style="background: radial-gradient(circle at 35% 35%, #f5deb3, #c8813a);"></div>
+                    </div>
+                    <div class="orbit orbit-3">
+                        <div onclick="displayPlanetsInfo('Earth')" class="planet" data-name="Earth" style="background: radial-gradient(circle at 35% 35%, #4fc3f7, #1a6b2a);"></div>
+                    </div>
+                    <div class="orbit orbit-4">
+                        <div onclick="displayPlanetsInfo('Mars')" class="planet" data-name="Mars" style="background: radial-gradient(circle at 35% 35%, #e8724a, #7a1f0a);"></div>
+                    </div>
+                    <div class="orbit orbit-5">
+                        <div onclick="displayPlanetsInfo('Jupiter')" class="planet" data-name="Jupiter" style="background: radial-gradient(circle at 35% 35%, #e8c99a, #a0522d);"></div>
+                    </div>
+                    <div class="orbit orbit-6">
+                        <div onclick="displayPlanetsInfo('Saturn')" class="planet" data-name="Saturn" style="background: radial-gradient(circle at 35% 35%, #f0e68c, #b8962e);"></div>
+                    </div>
+                    <div class="orbit orbit-7">
+                        <div onclick="displayPlanetsInfo('Uranus')" class="planet" data-name="Uranus" style="background: radial-gradient(circle at 35% 35%, #b2eff5, #2e8b8b);"></div>
+                    </div>
+                    <div class="orbit orbit-8">
+                        <div onclick="displayPlanetsInfo('Neptune')" class="planet" data-name="Neptune" style="background: radial-gradient(circle at 35% 35%, #5b7fe8, #1a237e);"></div>
+                    </div>
+                </div>
+                <!-- popup com as infos do planeta -->
+                <div class="popup-overlay" id="popupOverlay">
+                    <div class="popup">
+                        <button class="popup-close" id="popupClose">✕</button>
+                        <h2 class="popup-planet-name" id="popupPlanetName"></h2>
+                        <p class="popup-info" id="popupInfo">Select a planet to see details.</p>
+                        <ul class="popup-stats" id="popupStats"></ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <!-- bootstrap: link do email agora abre o modal via data-toggle/data-target -->
+            <a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                <img src="imgs/email-logo.png" class="email" alt="email-logo">
+            </a>
+
+            <a href="https://github.com/Holtz777/Solar-System" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
+                <img src="imgs/github-logo.png" class="git-hub" alt="gitub-logo">
+            </a>
+        </footer>
+
+        <!-- bootstrap: modal de contato por email -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">New message</h5>
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group"><label>Recipient:</label><input type="text" class="form-control" id="recipient-name"></div>
+                            <div class="form-group"><label>Message:</label><textarea class="form-control"></textarea></div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Send message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- bootstrap: jquery + bundle do bootstrap (necessarios pro modal) -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

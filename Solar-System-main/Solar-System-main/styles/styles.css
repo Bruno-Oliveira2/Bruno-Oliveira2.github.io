@@ -1,0 +1,196 @@
+/* variaveis globais do projeto */
+:root {
+    --font-base: sans-serif;
+    --text-primary: #ffffff;
+    --bg-primary: #000000;
+    --bg-panel: #1a1a1a;
+    --border-muted: rgb(68, 63, 63);
+    --border-soft: rgb(109, 101, 101);
+    --space-xs: 8px;
+    --space-sm: 10px;
+    --space-md: 12px;
+    --space-lg: 20px;
+    --radius-sm: 4px;
+    --radius-md: 10px;
+    --transition-fast: 0.25s ease;
+    --transition-medium: 0.3s ease;
+}
+
+/* reset basico */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-base);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-primary);
+    /* fundo com a imagem do espaco */
+    background-image: url("../imgs/bimg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* header com grid: logo | titulo | busca */
+header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: var(--space-sm) 5%;
+}
+
+header h1 {
+    grid-column: 2;
+    justify-self: center;
+    margin: 0;
+    font-size: 1.4em;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+header img,
+header .Search {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+.logo {
+    justify-self: start;
+    margin: 0;
+}
+
+/* icone de busca */
+.Search {
+    justify-self: end;
+    margin: 0;
+    cursor: pointer;
+}
+
+.Search:hover {
+    filter: brightness(500%);
+}
+
+/* wrapper da barra de busca (input + icone) */
+.search-wrapper {
+    grid-column: 3;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    min-height: 50px;
+}
+
+/* input de busca - comeca escondido */
+.search-input {
+    width: 0;
+    opacity: 0;
+    height: 38px;
+    padding: var(--space-xs) 0;
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-sm);
+    background-color: rgba(0, 0, 0, 0.92);
+    color: var(--text-primary);
+    outline: none;
+    pointer-events: none;
+    transition:
+        width var(--transition-fast),
+        opacity var(--transition-fast),
+        padding var(--transition-fast);
+}
+
+/* quando ativo, o input expande */
+.search-wrapper.active .search-input {
+    width: 180px;
+    opacity: 1;
+    padding: var(--space-xs) var(--space-md);
+    pointer-events: auto;
+}
+
+/* sidebar de navegacao - fica fixa na esquerda */
+.side-bar nav {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 100%;
+    width: 75px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    overflow: hidden;
+    border-right: 1px solid var(--border-soft);
+    border-top: 1px solid var(--border-muted);
+    background-color: #0f0f0f;
+    transition: width var(--transition-medium);
+}
+
+/* expande quando passa o mouse em cima */
+.side-bar nav:hover {
+    width: 200px;
+}
+
+.side-bar nav a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    white-space: nowrap;
+    text-decoration: none;
+    color: var(--text-primary);
+    padding: var(--space-sm);
+}
+
+/* main ocupa o resto da tela, deslocando pra direita por causa da sidebar */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 75px;
+}
+
+/* footer com os icones de contato */
+footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 24px;
+    padding: var(--space-sm) 6%;
+    height: 80px;
+}
+
+footer img {
+    height: 42px;
+    width: auto;
+    display: block;
+}
+
+/* icones de email e github com hover vermelho */
+.email,
+.git-hub {
+    margin: 0;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.email:hover,
+.git-hub:hover {
+    transform: translateY(-2px);
+    filter: drop-shadow(0 0 8px rgba(255, 70, 70, 0.85));
+}
+
+/* estilos de botao genericos (nao afeta o do popup) */
+button:not(.popup-close) {
+    width: 6vh;
+    height: 4vh;
+    border-radius: var(--radius-sm);
+    background-color: #ffffff;
+    border: none;
+}
+
+button:not(.popup-close):hover {
+    background-color: rgb(177, 177, 177);
+    color: #000000;
+}
