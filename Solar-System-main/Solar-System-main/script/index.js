@@ -151,3 +151,27 @@ $(document).ready(function () {
         modal.find('.modal-body input').val(recipient);
     });
 });
+
+const sun = document.querySelector(".sun");
+const whiteScreen = document.getElementById("whiteScreen");
+const restartBtn = document.getElementById("restartBtn");
+
+if (sun && whiteScreen && restartBtn) {
+    sun.addEventListener("click", () => {
+
+        // prevent popup or other clicks
+        document.body.classList.add("sun-clicked");
+
+        // expand sun
+        sun.classList.add("expand");
+
+        // fade to white after animation
+        setTimeout(() => {
+            whiteScreen.classList.add("show");
+        }, 1000);
+    });
+
+    restartBtn.addEventListener("click", () => {
+        location.reload();
+    });
+}
