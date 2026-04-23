@@ -250,3 +250,65 @@ body.popup-open .orbit {
     from { transform: rotate(0deg);    }
     to   { transform: rotate(-360deg); }
 }
+
+.sun {
+    transition: all 3s ease-in-out;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.sun.expand {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 200vw;
+    height: 200vh;
+    transform: translate(-50%, -50%) scale(1.2);
+    border-radius: 50%;
+    z-index: 999;
+}
+
+/* WHITE SCREEN */
+.white-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: white;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+    z-index: 2000;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;      
+}
+.white-screen.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* RESTART BUTTON */
+.restart-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+
+    min-width: 220px;
+    text-align: center;
+
+    display: block;
+}
+
+.white-screen.show .restart-btn {
+    display: block;
+}
